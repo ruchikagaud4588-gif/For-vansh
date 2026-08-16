@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>For You </title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#eadbd5;color:#493936;font-family:Arial,sans-serif;overflow:hidden}
+#book{height:100vh;display:flex;align-items:center;justify-content:center}
+.page{display:none;width:min(92vw,650px);height:min(90vh,780px);background:#fffaf5;border-radius:26px;box-shadow:0 18px 55px #49352b35;position:relative;overflow:hidden;padding:35px 28px;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.page.show{display:flex;animation:in .65s ease}
+@keyframes in{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:none}}
+h1,h2{font-family:Georgia,serif}h1{font-size:48px;margin:10px}h2{font-size:32px;margin:10px}
+p{line-height:1.7;max-width:520px}
+button{background:#9b6864;color:white;border:0;border-radius:30px;padding:13px 25px;font-size:14px;margin-top:16px;cursor:pointer;box-shadow:0 8px 20px #9b686450}
+.tiny{text-transform:uppercase;letter-spacing:3px;font-size:11px;opacity:.55}
+.heart{font-size:55px;animation:pulse 1.6s infinite}
+@keyframes pulse{50%{transform:scale(1.15)}}
+.envelope{width:310px;height:195px;background:#d59a91;border-radius:12px;position:relative;margin:22px;box-shadow:0 15px 30px #0002}
+.flap{position:absolute;inset:0;background:#bd7e78;clip-path:polygon(0 0,50% 58%,100% 0);transform-origin:top;transition:1s;z-index:2}
+.envelope.open .flap{transform:rotateX(180deg)}
+.seal{position:absolute;z-index:3;left:50%;top:50%;transform:translate(-50%,-50%);width:65px;height:65px;border-radius:50%;background:#fff4e8;display:grid;place-items:center;font-size:30px}
+.note{background:#fffdf8;border:1px solid #eadcd0;padding:22px;border-radius:8px;box-shadow:0 8px 22px #0001;max-width:530px}
+.photos{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:15px}
+.photo{width:145px;height:180px;background:white;padding:9px;box-shadow:0 7px 18px #0002;transform:rotate(-3deg)}
+.photo:nth-child(2){transform:rotate(4deg)}
+.photo:nth-child(3){transform:rotate(-1deg)}
+.photo .pic{height:125px;background:#ead0c9;display:grid;place-items:center;font-size:42px}
+.photo small{display:block;margin-top:8px}
+.final{background:#f7ddd8}
+.confetti{position:absolute;inset:0;background-image:radial-gradient(circle,#b97a73 2px,transparent 3px),radial-gradient(circle,#d3a16f 2px,transparent 3px);background-size:52px 52px,73px 73px;animation:fall 6s linear infinite;opacity:.4}
+@keyframes fall{to{background-position:20px 300px,0 350px}}
+.simple-mark{width:72px;height:72px;border:2px solid #c99a92;border-radius:50%;margin:8px auto 18px;position:relative}.simple-mark:after{content:"";position:absolute;inset:17px;border:1px solid #c99a92;border-radius:50%}
+.pageNo{position:absolute;bottom:12px;font-size:11px;opacity:.35}
+</style>
+</head>
+<body>
+<div id="book">
+
+<section class="page show" id="p1">
+<div class="tiny"></div>
+<div class="envelope" id="env"><div class="flap"></div><div class="seal"></div></div>
+<h2>💌 For Vansh 🎀</h2>
+<p>And yes… you have to open it yourself. 👀</p>
+<button onclick="openLetter()">OPEN YOUR LETTER </button>
+<div class="pageNo">1 / 8</div>
+</section>
+
+<section class="page" id="p2">
+<div class="heart"></div>
+<div class="tiny">wait… before the birthday wishes</div>
+<h1>Hey, you.</h1>
+<p>I didn't want to send you one of those ordinary birthday messages.</p>
+<p>So I made this little corner of the internet just for you.</p>
+<button onclick="next(3)">Okay, continue →</button>
+<div class="pageNo">2 / 8</div>
+</section>
+
+<section class="page" id="p3">
+<div class="tiny">chapter one</div>
+<h2>Do you know what I like?</h2>
+<div class="note">
+<p>It's not just the big moments.</p>
+<p>It's the random conversations, the stupid jokes, the unnecessary arguments, the little things we remember for no reason…</p>
+<p><b>Somehow, those ordinary moments become the ones worth keeping.</b></p>
+</div>
+<button onclick="next(4)">There's more </button>
+<div class="pageNo">3 / 8</div>
+</section>
+
+<section class="page" id="p4">
+<div class="tiny">chapter two</div>
+<h2>Okay, now I'm serious.</h2>
+<div class="note">
+<p>We haven't even known each other for that long. It has only been a few days.</p>
+<p>And yet, somehow, in those few days, we've already had laughs, random conversations… and yes, our share of arguments too. </p>
+<p>Maybe that's what makes it real — it isn't always perfectly smooth.</p>
+<p><b>But I'm glad our paths crossed.</b></p>
+</div>
+<button onclick="next(5)">There's more </button>
+<div class="pageNo">4 / 8</div>
+</section>
+
+<section class="page" id="p5">
+<div class="tiny">chapter three</div>
+<h2>Vansh, listen.</h2>
+<div class="note">
+<p>I don't know where this little friendship is going to take us, and honestly, we don't need to decide that right now.</p>
+<p>We may argue. We may annoy each other. We may disagree over the most ridiculous things.</p>
+<p>But I hope the good moments keep winning.</p>
+<p>Because even though we met only a few days ago, <b>I'm genuinely glad I met you.</b></p>
+</div>
+<button onclick="next(7)">One last thing…</button>
+<div class="pageNo">5 / 8</div>
+</section>
+
+<section class="page" id="p6">
+<div class="simple-mark"></div>
+<div class="tiny">keep this one</div>
+<h2>So, Vansh…</h2>
+<p>Don't become too annoying.</p>
+<p>Okay, fine. You probably already are. </p>
+<p>But seriously, I hope this new year of your life brings you good days, good people, big smiles and a lot of reasons to be happy.</p>
+<p>And maybe… a few less fights with me. </p>
+<button onclick="next(7)">Open the final page </button>
+<div class="pageNo">6 / 8</div>
+</section>
+
+<section class="page" id="p7">
+<div class="tiny">one thing I really want you to know</div>
+<h2>Vansh, don't be so hard on yourself.</h2>
+<div class="note">
+<p>I know sometimes you overthink things. You may notice the things you don't like about yourself more than the things that are actually good about you.</p>
+<p>But please remember: having a difficult day, feeling a little off, or questioning yourself doesn't make you less worthy.</p>
+<p>You don't have to have everything figured out all the time. You don't have to be perfect to be appreciated.</p>
+<p><b>There is more to you than the things you overthink about.</b></p>
+<p>So give yourself a little credit, okay?</p>
+</div>
+<button onclick="next(8)">Now, the actual birthday wish</button>
+<div class="pageNo">7 / 8</div>
+</section>
+
+<section class="page final" id="p8">
+<div class="confetti"></div>
+<div style="position:relative;z-index:1">
+<div class="tiny">and finally…</div>
+<h1>HAPPY BIRTHDAY </h1>
+<h2>Vansh.</h2>
+<p>We may have met only a few days ago, but I'm happy that I got to know you.</p>
+<p>Here's to more laughs, more random conversations, more memories… and yes, probably more arguments too. </p>
+<p><b>Have the best birthday. You deserve a really good year ahead.</b></p>
+<p style="font-family:Georgia,serif;font-size:28px">With lots of love & chaos,<br>Ruchika </p>
+<button onclick="next(1)">READ IT AGAIN ↻</button>
+</div>
+<div class="pageNo">8 / 8</div>
+</section>
+
+</div>
+<script>
+function next(n){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('show'));
+ document.getElementById('p'+n).classList.add('show');
+}
+function openLetter(){
+ document.getElementById('env').classList.add('open');
+ setTimeout(()=>next(2),900);
+}
+</script>
+</body>
+</html>
